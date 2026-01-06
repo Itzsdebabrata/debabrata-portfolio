@@ -1,0 +1,9 @@
+
+{
+  "name": "Debabrata Portfolio & Showcase",
+  "description": "A high-end professional portfolio featuring a project library, interactive AI assistant powered by Gemini, and seamless navigation.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
