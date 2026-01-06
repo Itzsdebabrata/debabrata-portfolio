@@ -44,14 +44,14 @@ const Home: React.FC<{ onNavigate: (path: string) => void }> = ({ onNavigate }) 
       <div className="py-20 border-y border-white/5 bg-white/[0.02] marquee">
         <div className="marquee-content text-[10vw] font-display font-black tracking-tighter uppercase whitespace-nowrap">
           <span className="mx-10">Creative Coding</span>
-          <span className="mx-10 text-outline" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.3)', color: 'transparent' }}>• UI Engineering •</span>
-          <span className="mx-10">AI Integration</span>
-          <span className="mx-10 text-outline" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.3)', color: 'transparent' }}>• Visual Design •</span>
+          <span className="mx-10 text-outline" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.3)', color: 'transparent' }}>• Voice Assistant Developer •</span>
+          <span className="mx-10">Web Developer</span>
+          <span className="mx-10 text-outline" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.3)', color: 'transparent' }}>• Social Media Manager •</span>
           {/* Duplicate for seamless scroll */}
           <span className="mx-10">Creative Coding</span>
-          <span className="mx-10 text-outline" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.3)', color: 'transparent' }}>• UI Engineering •</span>
-          <span className="mx-10">AI Integration</span>
-          <span className="mx-10 text-outline" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.3)', color: 'transparent' }}>• Visual Design •</span>
+          <span className="mx-10 text-outline" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.3)', color: 'transparent' }}>• Voice Assistant Developer •</span>
+          <span className="mx-10">Web Developer</span>
+          <span className="mx-10 text-outline" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.3)', color: 'transparent' }}>• Social Media Manager •</span>
         </div>
       </div>
 
