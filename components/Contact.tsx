@@ -8,7 +8,7 @@ const Contact: React.FC = () => {
 
   useEffect(() => {
     // Initialize EmailJS with your service ID
-    emailjs.init('service_1cfnj0d'); // You'll need to replace this
+    emailjs.init('service_ud8uirn');
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -23,7 +23,7 @@ const Contact: React.FC = () => {
     };
 
     emailjs
-      .send('service_1cfnj0d', 'template_debabrata', templateParams)
+      .send('service_ud8uirn', 'template_r64kqrx', templateParams)
       .then(() => {
         setIsSubmitting(false);
         setSubmitted(true);
