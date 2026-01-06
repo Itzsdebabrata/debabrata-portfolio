@@ -6,10 +6,10 @@ export const PROJECTS: Project[] = [
     title: 'Galaxy Portfolio',
     description: 'A stunning modern portfolio with cosmic-inspired design and smooth animations.',
     longDescription: 'Galaxy Portfolio is a premium, fully responsive portfolio template featuring a stunning cosmic theme with smooth animations, dark mode optimization, and blazing-fast performance. Built with modern web technologies for showcase and demonstration.',
-    imageUrl: 'https://images.unsplash.com/photo-1635320066175-dbf13d992c48?q=80&w=1964&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?q=80&w=1964&auto=format&fit=crop',
     techStack: ['React', 'TypeScript', 'Tailwind', 'Vite', 'Animations'],
     demoUrl: 'https://github.com/techinz/galaxy-portfolio',
-    githubUrl: 'https://github.com/Debabrata/galaxy-portfolio',
+    githubUrl: 'https://github.com/techinz/galaxy-portfolio',
     category: 'Web'
   }
 ];
