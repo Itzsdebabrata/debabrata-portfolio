@@ -38,7 +38,7 @@ const Contact: React.FC = () => {
 
   const socialLinks = [
     { name: 'Instagram', url: 'https://instagram.com/itzs_debabrata', color: 'hover:text-pink-400' },
-    { name: 'Facebook', url: 'https://facebook.com/debabrata.mal', color: 'hover:text-blue-600' },
+    { name: 'Facebook', url: 'https://www.facebook.com/debabratamal1009/', color: 'hover:text-blue-600' },
     { name: 'LinkedIn', url: '#', color: 'hover:text-blue-400' },
     { name: 'Twitter', url: '#', color: 'hover:text-sky-400' },
   ];

@@ -78,7 +78,7 @@ const App: React.FC = () => {
                 <span className="text-xs text-gray-400">@itzs_debabrata</span>
               </a>
               {/* Facebook */}
-              <a href="https://facebook.com/debabrata.mal" target="_blank" rel="noopener noreferrer" className="interactive group flex flex-col items-center gap-2">
+              <a href="https://www.facebook.com/debabratamal1009/" target="_blank" rel="noopener noreferrer" className="interactive group flex flex-col items-center gap-2">
                 <div className="p-4 rounded-full bg-white/5 group-hover:bg-blue-600 transition-all duration-500 transform group-hover:-translate-y-2">
                   <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
