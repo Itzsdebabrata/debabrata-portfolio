@@ -10,12 +10,52 @@ const AIChat: React.FC = () => {
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const inactivityRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages, isTyping]);
+
+  // Auto-close chat after inactivity (5 minutes) and on route change
+  useEffect(() => {
+    const clearTimer = () => {
+      if (inactivityRef.current) {
+        clearTimeout(inactivityRef.current);
+        inactivityRef.current = null;
+      }
+    };
+
+    const startTimer = () => {
+      clearTimer();
+      // auto-close after 5 minutes of inactivity
+      inactivityRef.current = window.setTimeout(() => {
+        setIsOpen(false);
+      }, 5 * 60 * 1000);
+    };
+
+    if (isOpen) {
+      startTimer();
+      // reset timer on user interactions inside the chat
+      const reset = () => startTimer();
+      window.addEventListener('mousemove', reset);
+      window.addEventListener('keydown', reset);
+      window.addEventListener('touchstart', reset);
+      // close on navigation
+      window.addEventListener('hashchange', () => setIsOpen(false));
+
+      return () => {
+        clearTimer();
+        window.removeEventListener('mousemove', reset);
+        window.removeEventListener('keydown', reset);
+        window.removeEventListener('touchstart', reset);
+        window.removeEventListener('hashchange', () => setIsOpen(false));
+      };
+    }
+    return undefined;
+  }, [isOpen]);
 
   const handleSend = async () => {
     if (!input.trim() || isTyping) return;
@@ -59,7 +99,7 @@ const AIChat: React.FC = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 w-80 md:w-96 h-[500px] bg-gray-900 border border-gray-700 rounded-2xl shadow-2xl flex flex-col z-[9999] overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-300">
+        <div ref={containerRef} className="fixed bottom-24 right-4 left-4 md:right-6 md:left-auto w-[calc(100%-2rem)] max-w-[380px] md:w-96 h-[500px] bg-gray-900 border border-gray-700 rounded-2xl shadow-2xl flex flex-col z-[9999] overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-300">
           <div className="p-4 border-b border-gray-700 bg-gray-800/50 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-xs font-bold">D</div>

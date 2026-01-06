@@ -10,11 +10,12 @@ const ConnectionMap: React.FC = () => {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-
     let particles: Particle[] = [];
     const particleCount = 60;
     const connectionDistance = 150;
     const mouse = { x: -1000, y: -1000, radius: 200 };
+    let rafId: number | null = null;
+    const dpr = Math.max(1, window.devicePixelRatio || 1);
 
     class Particle {
       x: number;
@@ -59,11 +60,19 @@ const ConnectionMap: React.FC = () => {
 
     const init = () => {
       if (!containerRef.current) return;
-      canvas.width = containerRef.current.offsetWidth;
-      canvas.height = containerRef.current.offsetHeight;
+      const width = containerRef.current.offsetWidth;
+      const height = containerRef.current.offsetHeight;
+
+      // handle high-DPI displays
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
       particles = [];
       for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle(canvas.width, canvas.height));
+        particles.push(new Particle(width, height));
       }
     };
 
@@ -94,6 +103,11 @@ const ConnectionMap: React.FC = () => {
     };
 
     const handleResize = () => init();
+    // ResizeObserver to handle container size changes and visibility
+    const ro = new ResizeObserver(() => {
+      init();
+    });
+    if (containerRef.current) ro.observe(containerRef.current);
     const handleMouseMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
       mouse.x = e.clientX - rect.left;
@@ -108,13 +122,24 @@ const ConnectionMap: React.FC = () => {
     canvas.addEventListener('mousemove', handleMouseMove);
     canvas.addEventListener('mouseleave', handleMouseLeave);
 
-    init();
-    animate();
+    // ensure we init once container has a usable size
+    const ensureInit = () => {
+      if (containerRef.current && containerRef.current.offsetWidth > 0) {
+        init();
+        animate();
+      } else {
+        // try again shortly
+        rafId = requestAnimationFrame(ensureInit);
+      }
+    };
+    ensureInit();
 
     return () => {
       window.removeEventListener('resize', handleResize);
       canvas.removeEventListener('mousemove', handleMouseMove);
       canvas.removeEventListener('mouseleave', handleMouseLeave);
+      if (rafId) cancelAnimationFrame(rafId);
+      ro.disconnect();
     };
   }, []);
 
