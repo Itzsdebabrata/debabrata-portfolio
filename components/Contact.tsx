@@ -49,7 +49,7 @@ const Contact: React.FC = () => {
                 </svg>
               </div>
               <h4 className="text-[10px] text-gray-500 uppercase font-black tracking-widest mb-1">Direct Email</h4>
-              <p className="text-lg font-display font-bold">hello@debabrata.studio</p>
+              <p className="text-lg font-display font-bold">debabratamal868@gmail.com</p>
             </div>
 
             <div className="glass group p-8 rounded-[2rem] hover:bg-white/5 transition-all duration-500 cursor-pointer border border-white/5 hover:border-purple-500/30">

@@ -119,7 +119,7 @@ const ConnectionMap: React.FC = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full h-[500px] lg:h-full rounded-[3rem] overflow-hidden bg-white/5 border border-white/10 group">
+    <div ref={containerRef} className="relative w-full h-[500px] lg:h-[600px] rounded-[3rem] overflow-hidden bg-white/5 border border-white/10 group">
       <canvas ref={canvasRef} className="absolute inset-0 z-0" />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 pointer-events-none"></div>
       
